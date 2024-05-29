@@ -11,19 +11,19 @@ package com.mycompany.project;
  */
 public class TreeNode {
  String data;
-    Sözcü_Cücük_LinkedList list;
+    LinkedList list;
     TreeNode left;
     TreeNode right;
     
     public TreeNode(String data) {
         this.data = data;
-        this.list = new Sözcü_Cücük_LinkedList();
+        this.list = new LinkedList();
         this.left = null;
         this.right = null;
     }
     
     public int getTotalCount() {
-        Sözcü_Cücük_ListNode current = list.head;
+        ListNode current = list.head;
         int count = 0;
         while (current != null) {
             count += current.wordCount;

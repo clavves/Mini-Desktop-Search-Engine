@@ -29,7 +29,7 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
     public static File[] ignoredArray;
     ArrayList<String> ignoredWordsList = new ArrayList<>();
 
-    Sözcü_Cücük_BinarySearchTree tree = new Sözcü_Cücük_BinarySearchTree();
+    BinarySearchTree tree = new BinarySearchTree();
     private DefaultListModel<String> fileListModel = new DefaultListModel();
     private DefaultListModel<String> ignoredListModel = new DefaultListModel();
     private DefaultListModel<String> wordListModel = new DefaultListModel();
@@ -45,7 +45,7 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
 
         fileArray = new File[100];
 
-        tree = new Sözcü_Cücük_BinarySearchTree();
+        tree = new BinarySearchTree();
 
         ButtonGroup group = new ButtonGroup();
         group.add(yesRadioBttn);
@@ -214,11 +214,11 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
         resetBttn.setVisible(false);
     }
 
-    void inorder(Sözcü_Cücük_BinarySearchTree tree) {
+    void inorder(BinarySearchTree tree) {
         inorder(tree.root);
     }
 
-    private void inorder(Sözcü_Cücük_Node node) {
+    private void inorder(TreeNode node) {
         if (node != null) {
             inorder(node.left);
             wordListModel.addElement(node.data + " (" + node.getTotalCount() + ")");
@@ -226,11 +226,11 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
         }
     }
 
-    void preorder(Sözcü_Cücük_BinarySearchTree tree) {
+    void preorder(BinarySearchTree tree) {
         preorder(tree.root);
     }
 
-    private void preorder(Sözcü_Cücük_Node node) {
+    private void preorder(TreeNode node) {
         if (node != null) {
             wordListModel.addElement(node.data + " (" + node.getTotalCount() + ")");
             preorder(node.left);
@@ -238,11 +238,11 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
         }
     }
 
-    void postorder(Sözcü_Cücük_BinarySearchTree tree) {
+    void postorder(BinarySearchTree tree) {
         postorder(tree.root);
     }
 
-    private void postorder(Sözcü_Cücük_Node node) {
+    private void postorder(TreeNode node) {
         if (node != null) {
             postorder(node.left);
             postorder(node.right);
@@ -601,7 +601,7 @@ public class MiniDesktopSearchEngine extends javax.swing.JFrame {
             } else {
                 String word = searchTextField.getText().toLowerCase();
                 if (tree.search(word) != null) {
-                    Sözcü_Cücük_ListNode node = tree.search(word).list.head;
+                    ListNode node = tree.search(word).list.head;
                     while (node != null) {
                         searchListModel.addElement(node.fileName + ": " + node.wordCount);
                         node = node.next;

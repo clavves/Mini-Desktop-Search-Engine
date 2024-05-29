@@ -10,16 +10,16 @@ package com.mycompany.project;
  */
 public class LinkedList {
 
-    Sözcü_Cücük_ListNode head;
+    ListNode head;
 
     void add(String fileName) {
         if (search(fileName) == null) {
-            Sözcü_Cücük_ListNode newNode = new Sözcü_Cücük_ListNode(fileName);
+            ListNode newNode = new ListNode(fileName);
 
             if (head == null) {
                 head = newNode;
             } else {
-                Sözcü_Cücük_ListNode temp = head;
+                ListNode temp = head;
                 while (temp.next != null) {
                     temp = temp.next;
                 }
@@ -27,13 +27,13 @@ public class LinkedList {
                 temp.next = newNode;
             }
         } else {
-            Sözcü_Cücük_ListNode current = search(fileName);
+            ListNode current = search(fileName);
             current.wordCount++;
         }
     }
 
-    public Sözcü_Cücük_ListNode search(String fileName) {
-        Sözcü_Cücük_ListNode current = head;
+    public ListNode search(String fileName) {
+        ListNode current = head;
 
         while (current != null) {
             if (current.fileName.equals(fileName)) {

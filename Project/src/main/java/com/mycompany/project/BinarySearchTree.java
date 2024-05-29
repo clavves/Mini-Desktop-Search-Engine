@@ -12,7 +12,7 @@ package com.mycompany.project;
  */
 public class BinarySearchTree {
 
-  Sözcü_Cücük_Node root;
+   TreeNode root;
 
     public BinarySearchTree() {
         root = null;
@@ -20,14 +20,14 @@ public class BinarySearchTree {
 
     void insert(String word, String fileName) {
         if (search(word) == null) {
-            Sözcü_Cücük_Node newNode = new Sözcü_Cücük_Node(word);
+            TreeNode newNode = new TreeNode(word);
 
             if (root == null) {
                 root = newNode;
                 root.list.add(fileName);
             } else {
-                Sözcü_Cücük_Node current = root;
-                Sözcü_Cücük_Node parent;
+                TreeNode current = root;
+                TreeNode parent;
                 while (true) {
                     parent = current;
                     if (word.compareTo(current.data) < 0) {
@@ -48,14 +48,14 @@ public class BinarySearchTree {
                 }
             }
         } else {
-            Sözcü_Cücük_Node current = search(word);
+            TreeNode current = search(word);
             current.list.add(fileName);
         }
     }
 
-    public Sözcü_Cücük_Node search(String word) {
+    public TreeNode search(String word) {
 
-        Sözcü_Cücük_Node current = root;
+        TreeNode current = root;
 
         while (current != null) {
             if (current.data.equals(word)) {
@@ -77,7 +77,7 @@ public class BinarySearchTree {
         root = null;
     }
 
-    public void clearTree(Sözcü_Cücük_Node node) {
+    public void clearTree(TreeNode node) {
         if (node == null) {
             return;
         }
